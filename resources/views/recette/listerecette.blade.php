@@ -16,9 +16,9 @@
 				<th><b>Quantité</b></th>
 			</tr>
 		<tr>
-			@foreach($recette as $nomboisson=>$rec)
+			@foreach($recette as $nomboisson=>$recettes)
 			<td>{{ $nomboisson }}</td>
-			@foreach($rec as $ingredient=>$quantite)
+			@foreach($recettes as $ingredient=>$quantite)
 
 			<td>{{$ingredient}}</td>
 			<td>  {{$quantite}}</td>

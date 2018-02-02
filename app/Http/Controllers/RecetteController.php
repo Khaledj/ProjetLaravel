@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 class RecetteController extends Controller
 {
-  	function listRecettes() {
+  	function listeRecettes() {
   	$recette = array(
 				'Expresso'	=> array(
 								'café'=>1,
@@ -27,7 +27,7 @@ class RecetteController extends Controller
   	            );
 
    
-     return view('recettes',compact('recette'));
+     return view('recette.listerecette',compact('recette'));
 	}
 }
 ?>

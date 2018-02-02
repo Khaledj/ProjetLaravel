@@ -4,7 +4,7 @@ Ajouter une boisson
 @endsection
 @section('content')
 
-      <form method="post" action="/machineACafe">
+      <form method="post" action="/boissons">
         {{csrf_field()}}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 

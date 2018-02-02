@@ -12,7 +12,7 @@ class BoissonController extends Controller
   function prixcroissant() {
    $boisson = Boisson::select("NomBoisson","Prix")->orderBy("Prix")->get();
    return view('prix', ['boisson'=> $boisson]);
- }
+  }
 
  function typeboisson() {
   $tboisson = Boisson::all();
@@ -24,22 +24,22 @@ function detail($code) {
   $boisson = Boisson::select('*')->where('CodeBoisson',$code)->get();
   return view('boissons.afficherprixboisson',['detail'=>$boisson]);
 }
-  
 
 
- function create(){
-  return view('ajout.choix');
- }
+
+function create(){
+  return view('boisson.ajout');
+}
 
 function store(Request $request){
 	$boisson = new Boisson();
-    $boisson->CodeBoisson = $request->input('codeboisson');
-    $boisson->NomBoisson = $request->input('boisson');
-    $boisson->Prix = $request->input('prix');
+  $boisson->CodeBoisson = $request->input('codeboisson');
+  $boisson->NomBoisson = $request->input('boisson');
+  $boisson->Prix = $request->input('prix');
   
-     $boisson->save();
+  $boisson->save();
 
-     return redirect('/machineACafe');
+  return redirect('/boissons');
 }
 
 
@@ -59,7 +59,6 @@ function update(Request $request) {
 
 
 
- 
 
 
-  
+

@@ -1,11 +1,11 @@
 @extends('template.template')
 @section('titre')
-  Affichage des boissons avec prix
+ Détails de la boisson
 @endsection
 @section('content')
- @foreach ($detailBoisson as $drinkName)
-  <p>Nom boisson: <td>{{$drinkName->NomBoisson}}</td></p>
-  <p>Prix: <tr>{{$drinkName->Prix}}</tr>cts</p>
+ @foreach ($detailboisson as $boisson)
+  <p>Nom boisson: <td>{{$boisson->NomBoisson}}</td></p>
+  <p>Prix: <tr>{{$boisson->Prix}}</tr>cts</p>
   @endforeach
    <a href="\modif"> <button class="button button3"> <div class="glyphicon glyphicon-pencil"></button></a>
 @endsection
