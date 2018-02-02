@@ -9,47 +9,47 @@ use App\Boisson;
 class BoissonController extends Controller
 {
 
-  function prixcroissant() {
-   $boisson = Boisson::select("NomBoisson","Prix")->orderBy("Prix")->get();
-   return view('prix', ['boisson'=> $boisson]);
+  function create(){
+    return view('boisson.ajout');
   }
 
- function typeboisson() {
-  $tboisson = Boisson::all();
-  return view('boissons',['type'=>$tboisson]);
+  function store(Request $request){
+    $boisson = new Boisson();
+    $boisson->CodeBoisson = $request->input('codeboisson');
+    $boisson->NomBoisson = $request->input('boisson');
+    $boisson->Prix = $request->input('prix');
 
-}
+    $boisson->save();
 
-function detail($code) {
-  $boisson = Boisson::select('*')->where('CodeBoisson',$code)->get();
-  return view('boissons.afficherprixboisson',['detail'=>$boisson]);
-}
+    return redirect('/boissons');
+  }
+
+  function ordreBoisson() {
+  $tboisson = Boisson::select("NomBoisson")->orderBy("NomBoisson")->get();
+  return view('boisson.boisson_ordre',['ordre'=>$tboisson]);
+  }
 
 
 
-function create(){
-  return view('boisson.ajout');
-}
+  function prixCroissant() {
+   $boisson = Boisson::select("NomBoisson","Prix")->orderBy("Prix")->get();
+   return view('boisson.prix', ['boisson'=> $boisson]);
+  }
 
-function store(Request $request){
-	$boisson = new Boisson();
-  $boisson->CodeBoisson = $request->input('codeboisson');
-  $boisson->NomBoisson = $request->input('boisson');
-  $boisson->Prix = $request->input('prix');
   
-  $boisson->save();
 
-  return redirect('/boissons');
-}
+  function detail($code) {
+  $boisson = Boisson::select('*')->where('CodeBoisson',$code)->get();
+  return view('boisson.afficherprixboisson',['detail'=>$boisson]);
+  }
 
+// function edit() {
+// 	return view('modif.modification');
+// }
 
-function edit() {
-	return view('modif.modification');
-}
-
-function update(Request $request) {
- return $request->input();
-}
+// function update(Request $request) {
+//  return $request->input();
+// }
 
 }
 

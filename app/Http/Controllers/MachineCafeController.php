@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-class MachineacafeController extends Controller
+class MachineCafeController extends Controller
 {
 
   // Fonction de Khaled

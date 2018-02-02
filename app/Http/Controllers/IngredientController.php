@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 class IngredientController extends Controller
 {
-  function listIngredients() {
+  function listeIngredients() {
   	$ingredients = array(
   		'Café' => 100,
   		'Eau'=> 100,
@@ -12,7 +12,7 @@ class IngredientController extends Controller
       'Sucre' => 100
 			);
 			
-     return view('ingredients', compact('ingredients'));
+     return view('ingredient.listeingredient', compact('ingredients'));
  }
 }
 ?>

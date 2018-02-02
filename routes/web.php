@@ -15,16 +15,38 @@
 Route::get('/index', 'IndexController@bienvenue');
 
 //Route de la page qui correspond à la machine à café//
-Route::get('/machineacafe','MachineacafeController@machine');
+Route::get('/machine_a_cafe','MachineCafeController@machine');
 
-///////Liste boissons//////
-
+////Liste boissons////
 //Route de la page liste des boissons//
-Route::get('/boissons','ListeboissonController@listeboisson');
+Route::get('/boissons','ListeBoissonController@listeBoisson');
 
 //Route de la page qui affiche le détail une boisson
-Route::get('/boisson/{code}','ListeboissonController@detailboisson');
+Route::get('/boisson/{code}','ListeBoissonController@detailBoisson');
 
+
+////Liste recette////
+//Route de la page liste de recette//
+Route::get('/recettes','RecetteController@listeRecettes');
+
+
+////Liste ingredient////
+//Route de la page liste des ingredients//
+Route::get('/ingredients','IngredientController@listeIngredients');
+
+
+////Liste vente////
+//Route de la page liste des ventes//
+Route::get('/ventes','VenteController@listeVente');
+
+
+////Gestion monnaie////
+//Route de la page liste de la gestion de monnaie//
+Route::get('/gestion_monnaie','GestionMonnaieController@listeMonnaie');
+
+/////ORM : Modele////
+
+////Boissons////
 
 //formulaire des boissons (saisie du formulaire)//
 Route::get('/ajout','BoissonController@create');
@@ -32,28 +54,14 @@ Route::get('/ajout','BoissonController@create');
 //récupération de la saisie du formulaire des boissons//
 Route::post('/boissons','BoissonController@store');
 
-//////Liste recette///////
-//Route de la page liste de recette//
-Route::get('/recettes','RecetteController@listerecettes');
+//Route de la page qui affiche les boissons par ordre alphabétique en ORM
+Route::get('/boisson_ordre','BoissonController@ordreBoisson');
 
-//Route de la page liste des ingredients//
-Route::get('/ingredients','IngredientController@listIngredients');
+// Route de la page qui affiche les prix en ordre croissant et les boissons en ORM
+Route::get('/prix_croissant','BoissonController@prixCroissant');
 
-//Route de la page liste des ventes//
-Route::get('/ventes','VenteController@listeVente');
-
-//Route de la page liste de la gestion de monnaie//
-Route::get('/gestionMonnaie','GestionMonnaieController@listMonnaie');
-
-
-// //Route de la page qui affiche les boissons par ordre alphabétique en ORM
-// Route::get('boissons','BoissonController@typeboisson');
-
-// //Route de la page qui affiche les prix en ordre croissant et les boissons en ORM
-// Route::get('prix','BoissonController@prixcroissant');
-
-// //Route de la page qui affiche les boissons avec un prix en ORM
-// Route::get('/boissons/{code}','BoissonController@detail');
+//Route de la page qui affiche les boissons avec un prix en ORM
+Route::get('/boissons/{code}','BoissonController@detail');
 
 // //mettre a jour une boisson (saisie du formulaire)//
 // Route::get('modif','BoissonController@edit');

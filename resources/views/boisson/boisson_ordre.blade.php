@@ -1,7 +1,8 @@
+
 @extends('template.template')
 
 @section('titre')
-Machine à Café
+Liste des boissons par ordre alphabétique
 @endsection
 
 @section('content')
@@ -10,14 +11,16 @@ Machine à Café
     <table class = "table table-hover table-bordered">
       <thead>
         <tr class="active">
-            @foreach ($boissons as $nomboisson)
-            <td> {{$nomboisson->NomBoisson}}</td>
+          <th>NomBoisson</th>
+        </tr>
+            @foreach ($ordre as $nomboisson)
+            <tr>
+            <td><a href="/boissons/{{$nomboisson->CodeBoisson}}">{{$nomboisson->NomBoisson}} </a></td>
             @endforeach
-         </tr>
+        </tr>
       </thead>
     </table>
   </div>
 
-  
     
 @endsection

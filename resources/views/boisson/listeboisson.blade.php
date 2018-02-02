@@ -24,7 +24,9 @@ Liste des boissons
       </thead>
     </table>
   </div>
-<a href = "/ajout" > <button class="button button1">   <div class="glyphicon glyphicon-plus"></button></a>
+<a href = "/ajout" > <button type="button" class="btn btn-success"> Ajouter  </button></a>
+<a href = "/boisson_ordre" > <button type="button" class="btn btn-primary"> Tri Boisson </button></a>
+<a href = "/prix_croissant" > <button type="button" class="btn btn-info"> Tri Prix Croissant </button></a>
   
     
 @endsection

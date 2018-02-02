@@ -50,7 +50,7 @@ class VenteController extends Controller{
       ),
     );
     
-    return view("ventes",["RetourTab" => $venteTab]);
+    return view("vente.listevente",["RetourTab" => $venteTab]);
   }
 }
 ?>

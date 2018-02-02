@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 class GestionMonnaieController extends Controller
 {
 
-  function listMonnaie()
+  function listeMonnaie()
   {
-    return view('gestionMonnaie');
+    return view('monnaie.gestionmonnaie');
   }
 }
  ?>
