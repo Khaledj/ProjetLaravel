@@ -44,7 +44,6 @@ class BoissonController extends Controller
 
  function edit($code) {
   $boisson = Boisson::find($code);
-  dump($boisson);
  	return view('boisson.modification',['boisson'=>$boisson]);
  }
 
@@ -57,11 +56,14 @@ function update(Request $request,$code) {
   return redirect('/boissons');
  }
 
- // function delete($code) {
- //   $boisson =Boisson::find($code);
- //   $boisson->delete();
- //   return redirect('/boissons');
- // }
+ function val($code) {
+  $boisson = Boisson::find($code);
+  return view('boisson.suppression',['boisson'=>$boisson]);
+ }
+  function delete($code) {
+    $boisson =Boisson::find($code)->delete();
+    return redirect('/boissons');
+  }
 }
 
 
