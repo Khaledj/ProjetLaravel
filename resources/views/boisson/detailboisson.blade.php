@@ -7,5 +7,4 @@
   <p>Nom boisson: <td>{{$boisson->NomBoisson}}</td></p>
   <p>Prix: <tr>{{$boisson->Prix}}</tr>cts</p>
   @endforeach
-   <a href="\modif"> <button class="button button3"> <div class="glyphicon glyphicon-pencil"></button></a>
 @endsection

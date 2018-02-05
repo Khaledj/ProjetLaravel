@@ -15,7 +15,7 @@ Liste des boissons par ordre alphabétique
         </tr>
             @foreach ($ordre as $nomboisson)
             <tr>
-            <td><a href="/boissons/{{$nomboisson->CodeBoisson}}">{{$nomboisson->NomBoisson}} </a></td>
+            <td><a href="/boisson_ordre/{{$nomboisson->CodeBoisson}}">{{$nomboisson->NomBoisson}} </a></td>
             @endforeach
         </tr>
       </thead>

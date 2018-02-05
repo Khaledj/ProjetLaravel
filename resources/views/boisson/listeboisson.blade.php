@@ -19,6 +19,8 @@ Liste des boissons
         
 
             <td>{{$nomboisson->Prix}}</td>
+            <td><a href = "/modif/{{$nomboisson->CodeBoisson}}" > <button type="button" class="btn btn-warning"> Modifier </button></a></td>
+            <td> <a href ="/supp/{{$nomboisson->CodeBoisson}}"> <button type="button" class="btn btn-danger"> Supprimer </button></a></td>
             @endforeach
         </tr>
       </thead>
@@ -27,6 +29,8 @@ Liste des boissons
 <a href = "/ajout" > <button type="button" class="btn btn-success"> Ajouter  </button></a>
 <a href = "/boisson_ordre" > <button type="button" class="btn btn-primary"> Tri Boisson </button></a>
 <a href = "/prix_croissant" > <button type="button" class="btn btn-info"> Tri Prix Croissant </button></a>
+
+
   
     
 @endsection

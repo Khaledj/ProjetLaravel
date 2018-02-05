@@ -48,12 +48,6 @@ Route::get('/gestion_monnaie','GestionMonnaieController@listeMonnaie');
 
 ////Boissons////
 
-//formulaire des boissons (saisie du formulaire)//
-Route::get('/ajout','BoissonController@create');
-
-//récupération de la saisie du formulaire des boissons//
-Route::post('/boissons','BoissonController@store');
-
 //Route de la page qui affiche les boissons par ordre alphabétique en ORM
 Route::get('/boisson_ordre','BoissonController@ordreBoisson');
 
@@ -61,11 +55,26 @@ Route::get('/boisson_ordre','BoissonController@ordreBoisson');
 Route::get('/prix_croissant','BoissonController@prixCroissant');
 
 //Route de la page qui affiche les boissons avec un prix en ORM
-Route::get('/boissons/{code}','BoissonController@detail');
+Route::get('/boisson_ordre/{code}','BoissonController@detail');
 
-// //mettre a jour une boisson (saisie du formulaire)//
-// Route::get('modif','BoissonController@edit');
+///Ajouter///
+//ajouter une boisson (saisie du formulaire)//
+Route::get('/ajout','BoissonController@create');
 
-// //mettre a jour une boisson (récuperation du formulaire)//
-// Route::get('modif','BoissonController@update');
-?>
+//récupération de la saisie du formulaire des boissons//
+Route::post('/boissons','BoissonController@store');
+
+///Mettre a jour///
+//mettre a jour une boisson (saisie du formulaire)//
+Route::get('/modif/{code}','BoissonController@edit');
+
+ //mettre a jour une boisson (récuperation du formulaire)//
+ Route::post('/boissons/{code}','BoissonController@update');
+
+///Suppression///
+ //demande de validation de suppresion//
+ Route::get('/supp/{code}','BoissonController@val');
+
+  //Supprimer une boisson//
+ Route::delete('/boissons','BoissonController@delete');
+ ?>
