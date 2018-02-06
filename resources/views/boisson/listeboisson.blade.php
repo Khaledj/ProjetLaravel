@@ -20,7 +20,7 @@ Liste des boissons
 
             <td>{{$nomboisson->Prix}}</td>
             <td><a href = "/modif/{{$nomboisson->CodeBoisson}}" > <button type="button" class="btn btn-warning"> Modifier </button></a></td>
-            <td> <a href ="/supp/{{$nomboisson->CodeBoisson}}"> <button type="button" class="btn btn-danger"> Supprimer </button></a></td>
+            <td> <a href ="/boissons/{{$nomboisson->CodeBoisson}}"> <button type="button" class="btn btn-danger"> Supprimer </button></a></td>
             @endforeach
         </tr>
       </thead>

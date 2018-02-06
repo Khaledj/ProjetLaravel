@@ -46,7 +46,7 @@ Route::get('/gestion_monnaie','GestionMonnaieController@listeMonnaie');
 
 /////ORM : Modele////
 
-////Boissons////
+////Liste des boissons////
 
 //Route de la page qui affiche les boissons par ordre alphabétique en ORM
 Route::get('/boisson_ordre','BoissonController@ordreBoisson');
@@ -68,13 +68,11 @@ Route::post('/boissons','BoissonController@store');
 //mettre a jour une boisson (saisie du formulaire)//
 Route::get('/modif/{code}','BoissonController@edit');
 
- //mettre a jour une boisson (récuperation du formulaire)//
- Route::post('/boissons/{code}','BoissonController@update');
+//mettre a jour une boisson (récuperation du formulaire)//
+Route::post('/boissons/{code}','BoissonController@update');
 
 ///Suppression///
- //demande de validation de suppresion//
- Route::get('/supp/{code}','BoissonController@val');
+//Supprimer une boisson existant//
+Route::get('/boissons/{code}','BoissonController@delete');
 
-  //Supprimer une boisson//
- Route::delete('/boissons','BoissonController@delete');
  ?>
