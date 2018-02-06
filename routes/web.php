@@ -75,4 +75,7 @@ Route::post('/boissons/{code}','BoissonController@update');
 //Supprimer une boisson existant//
 Route::get('/boissons/{code}','BoissonController@delete');
 
+
+////Liste des ventes///
+Route::get('/ventes','Vente_OrmController@listeVente');
  ?>
