@@ -12,6 +12,8 @@ Liste des boissons
         <tr class="active">
           <th>NomBoisson</th>
           <th>Prix</th>
+          <th>Bouton Modifier</th>
+          <th>Bouton Supprimer</th>
         </tr>
             @foreach ($boissons as $nomboisson)
             <tr>

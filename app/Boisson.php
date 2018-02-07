@@ -23,7 +23,7 @@ class Boisson extends Model
 
     //Définition de la relation 1 boisson - 1 vente//
     public function vente() {
-        return $this->belongsTo('App\Vente','foreign_key');
+        return $this->belongsTo('App\Vente','Boisson_CodeBoisson');
     }
     
     public function ingredient() {

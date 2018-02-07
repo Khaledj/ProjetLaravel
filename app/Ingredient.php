@@ -16,7 +16,7 @@ class Ingredient extends Model
 	protected $keyType = 'string';
 
     //
-    protected $fillable=['NomBoisson', 'Prix'];
+    protected $fillable=['NomIngredient','Stock'];
 
     //colonne created_at et updated_at n'existent pas//
     public $timestamps=false;

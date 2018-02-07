@@ -20,27 +20,22 @@ Route::get('/machine_a_cafe','MachineCafeController@machine');
 ////Liste boissons////
 //Route de la page liste des boissons//
 Route::get('/boissons','ListeBoissonController@listeBoisson');
-
 //Route de la page qui affiche le détail une boisson
 Route::get('/boisson/{code}','ListeBoissonController@detailBoisson');
 
+//Liste recette//
+// Route de la page liste de recette//
+// Route::get('/recettes','RecetteController@listeRecettes');//
 
-////Liste recette////
-//Route de la page liste de recette//
-Route::get('/recettes','RecetteController@listeRecettes');
+// Liste ingredient//
+// //Route de la page liste des ingredients//
+// Route::get('/ingredients','IngredientController@listeIngredients');//
 
-
-////Liste ingredient////
-//Route de la page liste des ingredients//
-Route::get('/ingredients','IngredientController@listeIngredients');
-
-
-////Liste vente////
+//Liste vente//
 //Route de la page liste des ventes//
-Route::get('/ventes','VenteController@listeVente');
+// Route::get('/ventes','VenteController@listeVente');//
 
-
-////Gestion monnaie////
+//Gestion monnaie//
 //Route de la page liste de la gestion de monnaie//
 Route::get('/gestion_monnaie','GestionMonnaieController@listeMonnaie');
 
@@ -75,7 +70,44 @@ Route::post('/boissons/{code}','BoissonController@update');
 //Supprimer une boisson existant//
 Route::get('/boissons/{code}','BoissonController@delete');
 
+///Liste des recettes///
 
-////Liste des ventes///
-Route::get('/ventes','Vente_OrmController@listeVente');
+//Liste des recettes mode ORM//
+Route::get('/recettes','RecetteController@recette');
+
+//Ajouter///
+//ajouter un ingrédient (saisie du formulaire)//
+Route::get('/ajout_recette','RecetteController@create');
+
+//récupération de la saisie du formulaire des boissons//
+Route::post('/recettes','RecetteController@store');
+
+
+////Liste des ingredients////
+
+///Liste des ingredients mode ORM///
+Route::get('/ingredients','IngredientController@ingredient');
+
+///Ajouter///
+//ajouter un ingrédient (saisie du formulaire)//
+Route::get('/ajout_ingredient','IngredientController@create');
+
+//récupération de la saisie du formulaire des boissons//
+Route::post('/ingredients','IngredientController@store');
+
+///Mettre a jour///
+//mettre a jour un ingrédient (saisie du formulaire)//
+Route::get('/modif_ingredient/{code}','IngredientController@edit');
+
+//mettre a jour un ingrédient (récuperation du formulaire)//
+Route::post('/ingredients/{code}', 'IngredientController@update');
+
+///Suppression///
+//Supprimer une boisson existant//
+Route::get('/ingredients/{code}','IngredientController@delete');
+
+////Liste des ventes mode ORM///
+Route::get('/ventes','VenteController@vente');
+
+
  ?>

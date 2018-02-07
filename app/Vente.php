@@ -20,7 +20,7 @@ class Vente extends Model
 
     //Définition de la relation n vente - 1 boisson//
     public function boisson() {
-    	return $this->hasMany('App\Boisson','foreign_key');
+    	return $this->hasMany('App\Boisson');
     }
 
 }

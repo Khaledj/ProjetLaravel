@@ -1,7 +1,7 @@
 @extends('template.template')
 
 @section('image')
-    <a href="ventes"><img class="imageCompte" alt="image de comptes"  src="../img/faire-ses-comptes.jpg" /></a>
+    <a href="/ventes"><img class="imageCompte" alt="image de comptes"  src="../img/faire-ses-comptes.jpg" /></a>
 @endsection
 
 @section('titre')

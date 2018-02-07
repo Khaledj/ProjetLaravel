@@ -1,18 +1,60 @@
 <?php
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Ingredient;
+
 class IngredientController extends Controller
 {
-  function listeIngredients() {
-  	$ingredients = array(
-  		'Café' => 100,
-  		'Eau'=> 100,
-  		'Thé'  => 100,
-  		'Lait' => 100,
-      'Sucre' => 100
-			);
-			
-     return view('ingredient.listeingredient', compact('ingredients'));
- }
-}
+
+   //Méthode listeIngredients qui affiche manuellement les valeurs de la variable $ingredients//
+   //  function listeIngredients() { $ingredients = array('Café' => 100,'Eau'=> 100,'Thé'  => 100,'Lait' => 100,'Sucre' => 100);
+
+   //     return view('ingredient.listeingredient', compact('ingredients'));
+   // }
+
+    //Méthode ingredient qui affiche la liste des ingredients en fonction de la mise a jour BDD//
+	function ingredient() {
+		$ingredient = Ingredient::select('*')->get();
+		return view('ingredient.ingredientorm',['ingredient'=>$ingredient]);
+	} 
+
+    //Méthode create qui permet de retourner la vue du formulaire//
+	function create(){
+		return view('ingredient.ajout');
+	}
+
+	//Méthode store qui permet d'ajouter un ingrédient via  un formulaire//
+    function store(Request $request){
+    $ingredient = new Ingredient(); // création d'un ingrédient//
+    $ingredient->CodeIngredient = $request->input('codeingredient'); //CodeIngredient prend la valeur de codeingredient du formulaire//
+    $ingredient->NomIngredient = $request->input('ingredient'); //NomIngredient prend la valeur de ingredient du formulaire//
+    $ingredient->StockIngredient = $request->input('stock'); //StockIngredient prend la valeur du stock du formulaire//
+    $ingredient->save(); //je sauvegarde un nouvelle ingredient
+    return redirect('/ingredients');
+    }
+
+    //Méthode edit qui permet de retourner la vue du formulaire correspondant à l'ingrédient selectionné//
+    function edit($code) {
+    $ingredient = Ingredient::find($code); //je recherche toutes les valeurs de l'ingredient qui correspond au code de l'ingredient//
+ 	  return view('ingredient.modification',['ingredient'=>$ingredient]);
+    }
+
+    //Méthode update qui permet de retourner une modification d'un ingrédient en fonction du code de l'ingrédient correspondant//
+    function update(Request $request,$code) {
+    $ingredient = Ingredient::find($code); //je recherche toutes les valeurs de l'ingrédient qui correspond à son code ingrédient//
+    $ingredient->NomIngredient = $request->input('ingredient'); //je modifie le NomIngrédient en fonction du formulaire
+    $ingredient->StockIngredient = $request->input('stock'); // je modifie le StockIngrédient en fonction du formulaire
+    $ingredient->save(); // je sauvegarde l'ingrédient  modifiée
+    return redirect('/ingredients'); 
+    }
+
+    //Méthode qui permet de supprimer un ingrédient existant en fonction du code de l'ingrédient//
+    function delete($code) { 
+    Ingredient::find($code)->delete(); // je recherche toutes les valeurs de l'ingrédient qui correspod au code de l'ingrédient et tu les supprime//
+    return redirect('/ingredients');
+  }
+  }
+
 ?>
+
