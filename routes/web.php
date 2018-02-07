@@ -76,12 +76,18 @@ Route::get('/boissons/{code}','BoissonController@delete');
 Route::get('/recettes','RecetteController@recette');
 
 //Ajouter///
-//ajouter un ingrédient (saisie du formulaire)//
+//ajouter une recette (saisie du formulaire)//
 Route::get('/ajout_recette','RecetteController@create');
 
 //récupération de la saisie du formulaire des boissons//
 Route::post('/recettes','RecetteController@store');
 
+///Mettre a jour///
+//mettre a jour une recette (saisie du formulaire)//
+Route::get('/modif_recette','RecetteController@edit');
+
+//mettre a jour une recette (récuperation du formulaire)//
+Route::post('/recettes/{code}', 'RecetteController@update');
 
 ////Liste des ingredients////
 
@@ -105,6 +111,7 @@ Route::post('/ingredients/{code}', 'IngredientController@update');
 ///Suppression///
 //Supprimer une boisson existant//
 Route::get('/ingredients/{code}','IngredientController@delete');
+
 
 ////Liste des ventes mode ORM///
 Route::get('/ventes','VenteController@vente');

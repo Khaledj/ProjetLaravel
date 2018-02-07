@@ -16,7 +16,7 @@ Ajouter une recette
         <input type="text" name="codeingredient" placeholder="Ecrire un ingrédient">
         <br>
         Quantité : <br>
-        <input type="text" name="quantiter" placeholder="Ecrire un stock">
+        <input type="text" name="quantite" placeholder="Ecrire un stock">
         <br>
         <input type="submit" value="submit">
    </form> 

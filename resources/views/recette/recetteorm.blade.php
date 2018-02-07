@@ -18,7 +18,8 @@
                     <tr>
                         <td>{{ $valeur->Boisson_CodeBoisson}}</td>
                         <td>{{ $valeur->Ingredients_CodeIngredient}}</td>
-                        <td>{{ $valeur->Quantiter}}</td>
+                        <td>{{ $valeur->Quantite}}</td>
+                            <td><a href = "/modif_recette" > <button type="button" class="btn btn-warning"> Modifier </button></a></td>
                     @endforeach
                 </tr>
             </thead>
