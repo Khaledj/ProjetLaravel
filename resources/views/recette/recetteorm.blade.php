@@ -12,13 +12,15 @@
                 <tr class="active">
                     <th>Boisson_CodeBoisson</th>
                     <th>Ingredients_CodeIngredient</th>
-                    <th>Quantiter</th>
+                    <th>Quantité</th>
+                    <th>Modifier</th>
                 </tr>
                     @foreach ($recettes as $recette)
                     <tr>
                         <td>{{ $recette->Boisson_CodeBoisson}}</td>
                         <td>{{ $recette->Ingredients_CodeIngredient}}</td>
                         <td>{{ $recette->Quantite}}</td>
+                        <td><a href = "/recettes/edit" > <button type="button" class="btn btn-primary"> Modifier  </button></a></td>
                             
                     @endforeach
                 </tr>

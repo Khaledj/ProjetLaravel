@@ -21,8 +21,8 @@ class Ingredient extends Model
     //colonne created_at et updated_at n'existent pas//
     public $timestamps=false;
 
-    public function boisson() {
-    	return $this->belongsToMany('App\Boisson');
+    public function boissons() {
+    	return $this->belongsToMany('App\Boisson')->withPivot('Quantiter');
     }
 
 }

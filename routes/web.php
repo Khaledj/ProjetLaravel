@@ -83,6 +83,10 @@ Route::get('/recettes/create','RecetteController@create');
 //récupération de la saisie du formulaire des boissons//
 Route::post('/recettes','RecetteController@store');
 
+///Mettre a jour///
+//mettre a jour une boisson (saisie du formulaire)//
+Route::get('/recettes/edit','RecetteController@edit');
+
 
 ///////Liste des ingredients///////
 

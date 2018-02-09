@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Boisson_has_ingredient;
+use App\Boisson;
 
 class RecetteController extends Controller
 {
@@ -36,6 +37,14 @@ class RecetteController extends Controller
     $recette->Quantite = $request->input('quantite'); //Quantité prend la valeur de la quantité du formulaire//
     $recette->save(); //je sauvegarde la nouvelle recette
     return redirect('/recettes');
+    }
+
+    //Méthode edit qui permet de retourner la vue du formulaire correspondant à la recette selectionné//
+    function edit() {
+     //je recherche toutes les valeurs de la recette qui correspond au code de l'ingredient et au code de la boisson//
+    $drink = Boisson_has_ingredient::all();
+      // $recette = $drink->ingredients;
+    return view('recette.modification',['recettes'=>$drink]);
     }
 }
 ?>

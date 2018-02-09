@@ -26,8 +26,8 @@ class Boisson extends Model
         return $this->belongsTo('App\Vente','Boisson_CodeBoisson');
     }
     
-    public function ingredient() {
-        return $this->belongsToMany('App\Ingredient','boisson_has_ingredient','Boisson_CodeBoisson','Ingredients_CodeIngredient');
+    public function ingredients() {
+        return $this->belongsToMany('App\Ingredient')->withPivot('Quantiter');
     }
     
     
