@@ -15,24 +15,22 @@ Liste des boissons
           <th>Bouton Modifier</th>
           <th>Bouton Supprimer</th>
         </tr>
-            @foreach ($boissons as $nomboisson)
+            @foreach ($boissons as $boisson)
             <tr>
-            <td><a href="/boisson/{{$nomboisson->CodeBoisson}}">{{ $nomboisson->NomBoisson}} </a></td>
-        
-
-            <td>{{$nomboisson->Prix}}</td>
-            <td><a href = "/modif/{{$nomboisson->CodeBoisson}}" > <button type="button" class="btn btn-warning"> Modifier </button></a></td>
-            <td> <a href ="/boissons/{{$nomboisson->CodeBoisson}}"> <button type="button" class="btn btn-danger"> Supprimer </button></a></td>
+            <td><a href="/boisson/{{$boisson->CodeBoisson}}">{{ $boisson->NomBoisson}} </a></td>
+            <td>{{$boisson->Prix}}</td>
+            <td><a href = "/boissons/{{$boisson->CodeBoisson}}/edit" > <button type="button" class="btn btn-warning"> Modifier </button></a></td>
+            <td> <form method="post" action="/boissons/{{$boisson->CodeBoisson}}">
+               {{csrf_field()}}
+               {{method_field("DELETE")}}
+             <input type="submit" value="Supprimer"></td>
+          </form>
             @endforeach
         </tr>
       </thead>
     </table>
   </div>
-<a href = "/ajout" > <button type="button" class="btn btn-success"> Ajouter  </button></a>
-<a href = "/boisson_ordre" > <button type="button" class="btn btn-primary"> Tri Boisson </button></a>
-<a href = "/prix_croissant" > <button type="button" class="btn btn-info"> Tri Prix Croissant </button></a>
-
-
-  
-    
+<a href = "/boissons/create" > <button type="button" class="btn btn-success"> Ajouter  </button></a>
+<a href = "/boissons_ordre" > <button type="button" class="btn btn-primary"> Tri Boisson </button></a>
+<a href = "/prix_croissant" > <button type="button" class="btn btn-info"> Tri Prix Croissant </button></a>  
 @endsection

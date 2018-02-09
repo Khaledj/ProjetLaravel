@@ -15,14 +15,14 @@
         <table class="table table-hover table-bordered">
             <thead>
                 <tr class="active">
-                    @foreach ($RetourTab[0] as $titre => $valeur)
+                    @foreach ($ventes[0] as $titre => $valeur)
                         <th>{{ $titre}}</th>
                     @endforeach
 
                 </tr>
             </thead>
             <tbody>
-                @foreach ($RetourTab as $typeVente => $donneeVente)
+                @foreach ($ventes as $typeVente => $donneeVente)
                     <tr>
                         @foreach ($donneeVente as $valeur)
                             <td>{{ $valeur }}</td>

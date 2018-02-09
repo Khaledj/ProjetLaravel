@@ -18,6 +18,5 @@ La liste des ingredients
                 @endforeach
             </table>
         </div>
-    @include('template.boutonAddRemoveModif')
     </div>
 @endsection

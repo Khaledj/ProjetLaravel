@@ -5,6 +5,7 @@ Modifier une boisson
 @section('content')
       <form method="post" action="/boissons/{{$boisson->CodeBoisson}}">
         {{csrf_field()}}
+        {{method_field("PUT")}}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         
         Boisson :<br>

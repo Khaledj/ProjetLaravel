@@ -9,7 +9,7 @@ Affichage des boissons avec prix croissant
 		  <th>NomBoisson</th>
           <th>Prix</th>
     </tr>
-@foreach($boisson as $liste)
+@foreach($boissons as $liste)
 <tr>
  <td>{{$liste->NomBoisson}}</td> 
  <td>{{$liste->Prix}}</td>

@@ -10,20 +10,20 @@ class BoissonController extends Controller
 {
 
 //Methode ordreBoisson qui permet de lister les boissons par ordre alphabétique//
- function ordreBoisson() {
-  $tboisson = Boisson::select("NomBoisson","CodeBoisson")->orderBy("NomBoisson")->get();
-  return view('boisson.boisson_ordre',['ordre'=>$tboisson]);
+ function ordreBoissons() {
+  $boissons = Boisson::select("NomBoisson","CodeBoisson")->orderBy("NomBoisson")->get();
+  return view('boisson.boisson_ordre',['ordre'=>$boissons]);
   }
 
 //Méthode prixCroissant qui permet de lister les boissons en fonction du prix croissant//
   function prixCroissant() {
-   $boisson = Boisson::select("NomBoisson","Prix")->orderBy("Prix")->get();
-   return view('boisson.prix', ['boisson'=> $boisson]);
+   $boissons = Boisson::select("NomBoisson","Prix")->orderBy("Prix")->get();
+   return view('boisson.prix', ['boissons'=> $boissons]);
   }
 
 //Méthode detail qui permet de donner le nom et le prix d'une boisson //
-  function detail($code) {
-  $boisson = Boisson::select('*')->where('CodeBoisson',$code)->get();
+  function show($boissoncode) {
+  $boisson = Boisson::select('*')->where('CodeBoisson',$boissoncode)->get();
   return view('boisson.afficheboisson',['detail'=>$boisson]);
   }
 
@@ -44,8 +44,8 @@ class BoissonController extends Controller
   }
 
  //Méthode edit qui permet de retourner la vue du formulaire correspondant à la boisson selectionnée//
- function edit($code) {
-  $boisson = Boisson::find($code); //je recherche toutes les valeurs de la boisson qui correspond au code de la boisson//
+ function edit($boissoncode) {
+  $boisson = Boisson::find($boissoncode); //je recherche toutes les valeurs de la boisson qui correspond au code de la boisson//
  	return view('boisson.modification',['boisson'=>$boisson]);
  }
 
@@ -59,8 +59,8 @@ function update(Request $request,$code) {
  }
 
 //Méthode qui permet de supprimer une boisson existante en fonction du code de la boisson//
-  function delete($code) { 
-    Boisson::find($code)->delete(); // je recherche toutes les valeurs de la boisson qui correspod au code de la boisson et tu les supprime//
+  function destroy($boissoncode) { 
+    Boisson::find($boissoncode)->delete(); // je recherche toutes les valeurs de la boisson qui correspod au code de la boisson et tu les supprime//
     return redirect('/boissons');
   }
 }

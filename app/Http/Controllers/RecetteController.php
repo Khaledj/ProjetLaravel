@@ -8,21 +8,21 @@ class RecetteController extends Controller
 {
 
  //Methode listeRecettes qui affiche manuellement les valeurs de la variable recette//
- //  	function listeRecettes() {
- //  	$recette = array('Expresso'	=> array('café'=>1,'eau'=>1),
- //  		             'Café_long'=> array('café'=>2,'eau'=>2),
-	// 			     'Thé'		=> array('thé'=>1,'eau'=>2),
-	// 			     'Café au lait'=> array('café'=>1,'eau'=>2,'lait'=>2),
- //  	                );
- //     return view('recette.listerecette',compact('recette'));
-	// }
+  // 	function index() {
+  // 	$recettes = array('Expresso'	=> array('café'=>1,'eau'=>1),
+  // 		             'Café_long'=> array('café'=>2,'eau'=>2),
+	 // 			     'Thé'		=> array('thé'=>1,'eau'=>2),
+		// 		     'Café au lait'=> array('café'=>1,'eau'=>2,'lait'=>2),
+  // 	                );
+  //    return view('recette.listerecette',compact('recettes'));
+	 // }
 
-//Méthode recette qui affiche la liste des ingredients en fonction de la mise a jour BDD//
-	function recette() {
-	$recette = Boisson_has_ingredient::select('*')->get();
-	return view('recette.recetteorm',['recette'=>$recette]);
+// //Méthode recette qui affiche la liste des ingredients en fonction de la mise a jour BDD//
+ 	function index() {
+ 	$recettes = Boisson_has_ingredient::select('*')->get();
+ 	return view('recette.recetteorm',['recettes'=>$recettes]);
 
-	}
+ 	}
 //Méthode create qui permet de retourner la vue du formulaire//
 	function create(){
 		return view('recette.ajout');
@@ -37,19 +37,6 @@ class RecetteController extends Controller
     $recette->save(); //je sauvegarde la nouvelle recette
     return redirect('/recettes');
     }
-    //Méthode edit qui permet de retourner la vue du formulaire correspondant à la recette//
-    function edit() {
-    return view('recette.modification');
-    }
-
-    //Méthode update qui permet de retourner une modification d'une recette//
-    function update(Request $request,$code) {
-    $recette = Boisson_has_ingredient::find($code); //je recherche toutes les valeurs de la recette //
-    $recette->Quantite = $request->input('quantite'); // je modifie la quantiter en fonction du formulaire
-    // $recette->save(); // je sauvegarde la recette modifiée
-
-    return redirect('/recettes',dump($recette)); 
-    }    
 }
 ?>
 

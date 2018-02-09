@@ -8,16 +8,16 @@ class IngredientController extends Controller
 {
 
    //Méthode listeIngredients qui affiche manuellement les valeurs de la variable $ingredients//
-   //  function listeIngredients() { $ingredients = array('Café' => 100,'Eau'=> 100,'Thé'  => 100,'Lait' => 100,'Sucre' => 100);
+    //  function index() { $ingredients = array('Café' => 100,'Eau'=> 100,'Thé'  => 100,'Lait' => 100,'Sucre' => 100);
 
-   //     return view('ingredient.listeingredient', compact('ingredients'));
-   // }
+    //     return view('ingredient.listeingredient', compact('ingredients'));
+    // }
 
     //Méthode ingredient qui affiche la liste des ingredients en fonction de la mise a jour BDD//
-	function ingredient() {
-		$ingredient = Ingredient::select('*')->get();
-		return view('ingredient.ingredientorm',['ingredient'=>$ingredient]);
-	} 
+	 function index() {
+	 	$ingredients = Ingredient::select('*')->get();
+	 	return view('ingredient.ingredientorm',['ingredients'=>$ingredients]);
+	 } 
 
     //Méthode create qui permet de retourner la vue du formulaire//
 	function create(){
@@ -35,8 +35,8 @@ class IngredientController extends Controller
     }
 
     //Méthode edit qui permet de retourner la vue du formulaire correspondant à l'ingrédient selectionné//
-    function edit($code) {
-    $ingredient = Ingredient::find($code); //je recherche toutes les valeurs de l'ingredient qui correspond au code de l'ingredient//
+    function edit($boissoncode) {
+    $ingredient = Ingredient::find($boissoncode); //je recherche toutes les valeurs de l'ingredient qui correspond au code de l'ingredient//
  	  return view('ingredient.modification',['ingredient'=>$ingredient]);
     }
 
@@ -50,8 +50,8 @@ class IngredientController extends Controller
     }
 
     //Méthode qui permet de supprimer un ingrédient existant en fonction du code de l'ingrédient//
-    function delete($code) { 
-    Ingredient::find($code)->delete(); // je recherche toutes les valeurs de l'ingrédient qui correspod au code de l'ingrédient et tu les supprime//
+    function destroy($boissoncode) { 
+    Ingredient::find($boissoncode)->delete(); // je recherche toutes les valeurs de l'ingrédient qui correspod au code de l'ingrédient et tu les supprime//
     return redirect('/ingredients');
   }
   }

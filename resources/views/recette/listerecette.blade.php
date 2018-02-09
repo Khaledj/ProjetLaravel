@@ -16,18 +16,17 @@
 				<th><b>Quantité</b></th>
 			</tr>
 		<tr>
-			@foreach($recette as $nomboisson=>$recettes)
-			<td>{{ $nomboisson }}</td>
-			@foreach($recettes as $ingredient=>$quantite)
+			@foreach($recettes as $nomboissons=>$recettes)
+			<td>{{ $nomboissons }}</td>
+			@foreach($recettes as $ingredients=>$quantites)
 
-			<td>{{$ingredient}}</td>
-			<td>  {{$quantite}}</td>
+			<td>{{$ingredients}}</td>
+			<td>  {{$quantites}}</td>
 			@endforeach
 			</tr>
 			@endforeach
 		</table>
 	</div> 
-	@include("template.boutonAddRemoveModif");
 @endsection
 
 

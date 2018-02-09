@@ -16,19 +16,23 @@
                     <th>Bouton Modifier</th>
                     <th>Bouton Supprimer</th>
                 </tr>
-                    @foreach ($ingredient as $valingredient)
+                    @foreach ($ingredients as $ingredient)
                     <tr>
-                        <td>{{ $valingredient->CodeIngredient}}</td>
-                        <td>{{ $valingredient->NomIngredient}}</td>
-                        <td>{{ $valingredient->StockIngredient}}</td>
-                        <td><a href = "/modif_ingredient/{{$valingredient->CodeIngredient}}" > <button type="button" class="btn btn-warning"> Modifier </button></a></td>
-                        <td> <a href ="/ingredients/{{$valingredient->CodeIngredient}}"> <button type="button" class="btn btn-danger"> Supprimer </button></a></td>
+                        <td>{{ $ingredient->CodeIngredient}}</td>
+                        <td>{{ $ingredient->NomIngredient}}</td>
+                        <td>{{ $ingredient->StockIngredient}}</td>
+                        <td><a href = "/ingredients/{{$ingredient->CodeIngredient}}/edit" > <button type="button" class="btn btn-warning"> Modifier </button></a></td>
+                        <td> <form method="post" action="/ingredients/{{$ingredient->CodeIngredient}}">
+                        {{csrf_field()}}
+                        {{method_field("DELETE")}}
+                        <input type="submit" value="Supprimer"></td>
+                        </form>
                     @endforeach
                 </tr>
             </thead>
         </table>
     </div>
-    <a href = "/ajout_ingredient" > <button type="button" class="btn btn-success"> Ajouter  </button></a>
+    <a href = "/ingredients/create" > <button type="button" class="btn btn-success"> Ajouter  </button></a>
 @endsection
 
   

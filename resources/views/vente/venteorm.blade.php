@@ -21,13 +21,13 @@
                     <th>Heure</th>
 
                 </tr>
-                    @foreach ($vente as $valeur)
+                    @foreach ($ventes as $vente)
                     <tr>
-                        <td>{{ $valeur->NumeroVente}}</td>
-                        <td>{{ $valeur->Date}}</td>
-                        <td>{{ $valeur->NombreSucre}}</td>
-                        <td>{{ $valeur->Boisson_CodeBoisson}}</td>
-                        <td>{{ $valeur->Heure}}</td>
+                        <td>{{ $vente->NumeroVente}}</td>
+                        <td>{{ $vente->Date}}</td>
+                        <td>{{ $vente->NombreSucre}}</td>
+                        <td>{{ $vente->Boisson_CodeBoisson}}</td>
+                        <td>{{ $vente->Heure}}</td>
 
                     @endforeach
                 </tr>

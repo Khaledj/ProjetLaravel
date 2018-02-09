@@ -14,16 +14,16 @@
                     <th>Ingredients_CodeIngredient</th>
                     <th>Quantiter</th>
                 </tr>
-                    @foreach ($recette as $valeur)
+                    @foreach ($recettes as $recette)
                     <tr>
-                        <td>{{ $valeur->Boisson_CodeBoisson}}</td>
-                        <td>{{ $valeur->Ingredients_CodeIngredient}}</td>
-                        <td>{{ $valeur->Quantite}}</td>
-                            <td><a href = "/modif_recette" > <button type="button" class="btn btn-warning"> Modifier </button></a></td>
+                        <td>{{ $recette->Boisson_CodeBoisson}}</td>
+                        <td>{{ $recette->Ingredients_CodeIngredient}}</td>
+                        <td>{{ $recette->Quantite}}</td>
+                            
                     @endforeach
                 </tr>
             </thead>
         </table>
     </div>
-     <a href = "/ajout_recette" > <button type="button" class="btn btn-success"> Ajouter  </button></a>
+     <a href = "/recettes/create" > <button type="button" class="btn btn-success"> Ajouter  </button></a>
 @endsection
