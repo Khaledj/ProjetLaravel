@@ -20,6 +20,6 @@ Ajouter une boisson
        <br>
         <input type="submit" value="submit">
    </form> 
-    </div>
+    
 
 @endsection

@@ -50,8 +50,8 @@ class BoissonController extends Controller
  }
 
 //Méthode update qui permet de retourner une modification d'une boisson en fonction du code de la boisson correspondant//
-function update(Request $request,$code) {
-  $boisson = Boisson::find($code); //je recherche toutes les valeurs de la boisson qui correspond à son code boisson//
+function update(Request $request,$boissoncode) {
+  $boisson = Boisson::find($boissoncode); //je recherche toutes les valeurs de la boisson qui correspond à son code boisson//
   $boisson->NomBoisson = $request->input('boisson'); //je modifie le NomBoisson en fonction du formulaire
   $boisson->Prix = $request->input('prix'); // je modifie le Prix en fonction du formulaire
   $boisson->save(); // je sauvegarde la boisson modifiée

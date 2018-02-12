@@ -22,7 +22,7 @@ class Ingredient extends Model
     public $timestamps=false;
 
     public function boissons() {
-    	return $this->belongsToMany('App\Boisson')->withPivot('Quantiter');
+    	return $this->belongsToMany('App\Boisson')->withPivot('Quantite');
     }
 
 }

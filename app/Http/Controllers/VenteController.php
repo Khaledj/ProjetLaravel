@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Vente;
+use App\Boisson;
 
 class VenteController extends Controller{
 /**Affiche toutes les ventes passées */
@@ -25,7 +26,24 @@ class VenteController extends Controller{
      return view('vente.venteorm',['ventes'=>$ventes]);
    }
 
+//Méthode create qui permet de retourner la vue du formulaire//
+  function create(Request $request){
+      return view('machineacafe.machine');
+  }
+
+// Méthode store qui permet d'ajouter une vente via  un formulaire//
+     function store(Request $request){
+     $vente = new Vente(); // création d'une vente //
+     //$boisson = Boisson::select("NomBoisson","CodeBoisson")->where("NomBoisson","=",$request->input('boisson'))->get(); 
+     $boisson = Boisson::where("NomBoisson","=",$request->input('boisson'))->first(); 
+     $vente->Date = date("Y/m/d");
+     $vente->NombreSucre = $request->input('sucre');
+     $vente->Boisson_CodeBoisson = $boisson->CodeBoisson;
+     $vente->Heure = date("H:i:s");
+     $vente->save(); //je sauvegarde une nouvelle vente*/
+     return redirect('/ventes');
+   }
+
+
 }
-
 ?>
-

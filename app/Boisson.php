@@ -22,12 +22,12 @@ class Boisson extends Model
     public $timestamps=false;
 
     //Définition de la relation 1 boisson - 1 vente//
-    public function vente() {
-        return $this->belongsTo('App\Vente','Boisson_CodeBoisson');
+    public function ventes() {
+        return $this->hasMany('App\Vente','Boisson_CodeBoisson');
     }
     
     public function ingredients() {
-        return $this->belongsToMany('App\Ingredient')->withPivot('Quantiter');
+        return $this->belongsToMany('App\Ingredient')->withPivot('Quantite');
     }
     
     

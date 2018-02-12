@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Boisson_has_ingredient;
 use App\Boisson;
+use App\Ingredient;
 
 class RecetteController extends Controller
 {
@@ -21,6 +22,7 @@ class RecetteController extends Controller
 // //Méthode recette qui affiche la liste des ingredients en fonction de la mise a jour BDD//
  	function index() {
  	$recettes = Boisson_has_ingredient::select('*')->get();
+
  	return view('recette.recetteorm',['recettes'=>$recettes]);
 
  	}
@@ -39,15 +41,31 @@ class RecetteController extends Controller
     return redirect('/recettes');
     }
 
-    //Méthode edit qui permet de retourner la vue du formulaire correspondant à la recette selectionné//
-    function edit() {
-     //je recherche toutes les valeurs de la recette qui correspond au code de l'ingredient et au code de la boisson//
-    $drink = Boisson_has_ingredient::all();
-      // $recette = $drink->ingredients;
-    return view('recette.modification',['recettes'=>$drink]);
+    // //Méthode edit qui permet de retourner la vue du formulaire correspondant à la recette selectionné//
+     function edit($boissoncode,$ingredientcode) {
+      //je recherche toutes les valeurs de la recette qui correspond au code de l'ingredient et au code de la boisson//
+
+
+    $recette = Boisson_has_ingredient::where("Boisson_CodeBoisson",$boissoncode)->where("Ingredients_CodeIngredient",$ingredientcode)->first();
+
+     return view('recette.modification',['recette'=>$recette]);
+     } 
+
+
+    //Méthode update qui permet de retourner une modification d'une recette//
+    function update(Request $request, $boissoncode,$ingredientcode) {
+
+       $recette = Boisson_has_ingredient::where("Boisson_CodeBoisson",$boissoncode)->where("Ingredients_CodeIngredient",$ingredientcode)->first();
+     
+      $recette->Quantite = $request->input('quantite'); // je modifie la quantité en fonction du formulaire
+
+      $recette->save();
+
+      return redirect('/recettes'); 
     }
 }
 ?>
+
 
     
  

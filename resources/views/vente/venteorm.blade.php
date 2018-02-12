@@ -33,7 +33,7 @@
                 </tr>
             </thead>
         </table>
-    </div>
+    <a href = "/machine_a_cafe" > <button type="button" class="btn btn-success"> Ajouter  </button></a>
 @endsection
 
   
