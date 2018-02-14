@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Vente extends Model
 {
     //création de la table boisson reliée à la base de donnée//
-	protected $table = 'vente';
+	protected $table = 'ventes';
     
     //définir la clé primaire//
-	protected $primaryKey = 'NumeroVente';
+	protected $primaryKey = 'numeroVente';
 
-    protected $fillable=['Date','NombreSucre','Heure'];
+    protected $fillable=['date','nombreSucre','heure'];
 
     //colonne created_at et updated_at n'existent pas//
     public $timestamps=false;

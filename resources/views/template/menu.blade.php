@@ -1,11 +1,30 @@
-<div class="menuTemplate">
+
+    <div class="menuTemplate">
   <div class="links">
-      <a href="../../">Home</a>
-      <a href="../../machine_a_cafe">Machine a café</a>
-      <a href="../../boissons"> Liste des boissons </a>
-      <a href="../../recettes">Liste des Recettes</a>
-      <a href="../../ingredients">Liste des Ingrédients</a>
-      <a href="../../ventes">Liste des Ventes</a>
-      <a href="../../gestion_monnaies">Gestion Monnaie</a>
-  </div>
+    @if (Route::has('login'))
+    @auth
+  
+    <a href="{{ route('index')}}">Home </a>
+    <a href="{{ route('machine')}}"> Machine à café</a>
+    <a href="{{ route('boisson')}}">Liste des boissons </a>
+    <a href="{{ route('recette')}}">Liste des Recettes</a>
+    <a href="{{ route('ingredient')}}">Liste des Ingrédients</a>
+    <a href="{{route ('vente')}}">Liste des Ventes</a>
+    <a href="{{route('monnaie')}}">Gestion Monnaie</a>
+      <a href="{{ url('/home') }}"> {{ Auth::user()->name }} </a>
+    @else
+     <a href="{{ route('index')}}">Home </a>
+     <a href="{{ route('machine')}}"> Machine a café</a>
+     <a href="{{ route('login') }}">Login</a>
+     <a href="{{ route('register') }}">Register</a>
+    @endauth
+   
+<form id="logout-form "  action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>
+@endif
 </div>
+</div>
+
+
+                        

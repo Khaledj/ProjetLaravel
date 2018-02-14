@@ -17,10 +17,10 @@ Liste des boissons
         </tr>
             @foreach ($boissons as $boisson)
             <tr>
-            <td><a href="/boisson/{{$boisson->CodeBoisson}}">{{ $boisson->NomBoisson}} </a></td>
-            <td>{{$boisson->Prix}}</td>
-            <td><a href = "/boissons/{{$boisson->CodeBoisson}}/edit" > <button type="button" class="btn btn-primary"> Modifier </button></a></td>
-            <td> <form method="post" action="/boissons/{{$boisson->CodeBoisson}}">
+            <td><a href="/boisson/{{$boisson->codeBoisson}}">{{ $boisson->nomBoisson}} </a></td>
+            <td>{{$boisson->prix}}</td>
+            <td><a href = "/boissons/{{$boisson->codeBoisson}}/edit" > <button type="button" class="btn btn-primary"> Modifier </button></a></td>
+            <td> <form method="post" action="/boissons/{{$boisson->codeBoisson}}">
                {{csrf_field()}}
                {{method_field("DELETE")}}
              <input type="submit" class="btn btn-danger" value="Supprimer"></td>

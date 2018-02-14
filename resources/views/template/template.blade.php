@@ -18,7 +18,8 @@
     <body>
         <header>
             @include('template.menu')
-        </header>
+
+              </header>
         <section>
             <div class="content">
                 <div class="title m-b-md">
@@ -26,22 +27,9 @@
                 </div>
                     @yield('image')
                     @yield('content')
-            </div>
-
-
-            <div class="flex-center position-ref full-height">
-                @if (Route::has('login'))
-                    <div class="top-right links">
-                        @auth
-                            <a href="{{ url('/home') }}">Home</a>
-                        @else
-                            <a href="{{ route('login') }}">Login</a>
-                            <a href="{{ route('register') }}">Register</a>
-                        @endauth
-                    </div>
-                @endif
-            </div>
+            </div>            
         </section>
+      
         <footer>
             @include('template.footer')
         </footer>

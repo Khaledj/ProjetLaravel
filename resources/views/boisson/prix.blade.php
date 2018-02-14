@@ -11,8 +11,8 @@ Affichage des boissons avec prix croissant
     </tr>
 @foreach($boissons as $liste)
 <tr>
- <td>{{$liste->NomBoisson}}</td> 
- <td>{{$liste->Prix}}</td>
+ <td>{{$liste->nomBoisson}}</td> 
+ <td>{{$liste->prix}}</td>
 </tr>
 @endforeach
 </tr>

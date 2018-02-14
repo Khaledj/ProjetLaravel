@@ -35,13 +35,13 @@ class VenteController extends Controller{
      function store(Request $request){
      $vente = new Vente(); // création d'une vente //
      //$boisson = Boisson::select("NomBoisson","CodeBoisson")->where("NomBoisson","=",$request->input('boisson'))->get(); 
-     $boisson = Boisson::where("NomBoisson","=",$request->input('boisson'))->first(); 
-     $vente->Date = date("Y/m/d");
-     $vente->NombreSucre = $request->input('sucre');
-     $vente->Boisson_CodeBoisson = $boisson->CodeBoisson;
-     $vente->Heure = date("H:i:s");
+     $boisson = Boisson::where("nomBoisson","=",$request->input('boisson'))->first(); 
+     $vente->date = date("Y/m/d");
+     $vente->nombreSucre = $request->input('sucre');
+     $vente->boissons_codeBoisson = $boisson->codeBoisson;
+     $vente->heure = date("H:i:s");
      $vente->save(); //je sauvegarde une nouvelle vente*/
-     return redirect('/ventes');
+     return redirect('/machine_a_cafe');
    }
 
 

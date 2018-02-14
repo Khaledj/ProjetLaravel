@@ -14,7 +14,7 @@ Ajouter une recette
         <br>
 
       	Code Ingrédient :<br>
-        <b> <input type="text" name="codeingredient" placeholder="Ecrire un ingrédient"> </b>
+        <b> <input type="text" name="codeingredient" placeholder="Ecrire un code"> </b>
         <br>
 
         Quantité : <br>

@@ -15,7 +15,7 @@ class MachineCafeController extends Controller
         // return view('machineACafe', compact('drinkChoice'));
 
         // Je selectionne le code,nom et prix de la table boisson et je retourne un tableau associatif boissons//
-		$listeboisson = DB::select('select NomBoisson, CodeBoisson,Prix from boisson');
+		$listeboisson = DB::select('select nomBoisson, codeBoisson,prix from boissons');
 		return view('machineacafe.machine', ['boissons' => $listeboisson]);
 	}
 

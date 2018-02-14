@@ -12,7 +12,7 @@ Ajouter un ingrédient
         CodeIngrédient:<br>
         <b> <input type="text" name="codeingredient" placeholder="Ecrire un code"> </b>
         <br>
-      	Ingrédient :<br>
+      	NomIngrédient :<br>
         <b> <input type="text" name="ingredient" placeholder="Ecrire un ingrédient"> </b>
         <br>
         Stock : <br>

@@ -2,7 +2,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Boisson_has_ingredient;
 use App\Boisson;
 use App\Ingredient;
 
@@ -18,55 +17,18 @@ class RecetteController extends Controller
   // 	                );
   //    return view('recette.listerecette',compact('recettes'));
 	 // }
-
 // //Méthode recette qui affiche la liste des ingredients en fonction de la mise a jour BDD//
  	function index() {
- 	$recettes = Boisson_has_ingredient::select('*')->get();
+ 	$boissons = Boisson::all();
+ 	
+ 	return view('recette.recetteorm',['boissons'=>$boissons]);	
+}
 
- 	return view('recette.recetteorm',['recettes'=>$recettes]);
-
- 	}
-//Méthode create qui permet de retourner la vue du formulaire//
-	function create(){
-		return view('recette.ajout');
-	}
-
-	//Méthode store qui permet d'ajouter une recette via  un formulaire//
-    function store(Request $request){
-    $recette = new Boisson_has_ingredient(); // création d'une recette//
-    $recette->Boisson_CodeBoisson = $request->input('codeboisson');
-    $recette->Ingredients_CodeIngredient = $request->input('codeingredient');
-    $recette->Quantite = $request->input('quantite'); //Quantité prend la valeur de la quantité du formulaire//
-    $recette->save(); //je sauvegarde la nouvelle recette
-    return redirect('/recettes');
-    }
-
-    // //Méthode edit qui permet de retourner la vue du formulaire correspondant à la recette selectionné//
-     function edit($boissoncode,$ingredientcode) {
-      //je recherche toutes les valeurs de la recette qui correspond au code de l'ingredient et au code de la boisson//
-
-
-    $recette = Boisson_has_ingredient::where("Boisson_CodeBoisson",$boissoncode)->where("Ingredients_CodeIngredient",$ingredientcode)->first();
-
-     return view('recette.modification',['recette'=>$recette]);
-     } 
-
-
-    //Méthode update qui permet de retourner une modification d'une recette//
-    function update(Request $request, $boissoncode,$ingredientcode) {
-
-       $recette = Boisson_has_ingredient::where("Boisson_CodeBoisson",$boissoncode)->where("Ingredients_CodeIngredient",$ingredientcode)->first();
-     
-      $recette->Quantite = $request->input('quantite'); // je modifie la quantité en fonction du formulaire
-
-      $recette->save();
-
-      return redirect('/recettes'); 
-    }
 }
 ?>
 
 
-    
+       
+
  
 

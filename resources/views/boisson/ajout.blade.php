@@ -12,7 +12,7 @@ Ajouter une boisson
         CodeBoisson:<br>
         <b> <input type="text" name="codeboisson" placeholder="Ecrire un code"> </b>
         <br>
-      	Boisson :<br>
+      	NomBoisson :<br>
        <b> <input type="text" name="boisson" placeholder="Ecrire une boisson"> </b>
        <br>
        Prix : <br>
