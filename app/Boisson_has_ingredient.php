@@ -2,20 +2,15 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Boisson_has_ingredient extends Model
+class Boisson_has_ingredient extends Pivot
 {
-	// protected $table = 'boissons_has_ingredients';
-  
- //    protected $primaryKey = 'boissons_codeBoisson';
-   
-  
- //    protected $keyType = 'string';
+	 protected $table = 'boissons_has_ingredients';
 
- //    protected $fillable=['quantite'];
+     protected $fillable=['quantite'];
 
- //    //colonne created_at et updated_at n'existent pas//
- //    public $timestamps=false;
+     //colonne created_at et updated_at n'existent pas//
+     public $timestamps=false;
 
 }

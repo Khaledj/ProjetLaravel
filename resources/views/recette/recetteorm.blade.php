@@ -10,22 +10,25 @@ Liste des recettes
       <table class = "table table-hover table-bordered">
         <thead>
             <tr class="active">
-                <th>Boisson_CodeBoisson</th>
-                <th>Ingredients_CodeIngredient</th>
+                <th>NomBoisson</th>
+                <th>boissons_codeBoisson</th>
+                <th>NomIngredient</th>
+                <th>ingredients_codeIngredient</th>
                 <th>Quantité</th> 
+                <th>Modifier</th>
             </tr>
 
             <tr>
                @foreach ($boissons as $boisson)
-                 $boisson->ingredients;
-
-               
-               @foreach($boisson->ingredients as $recette)
-   
+                @foreach($boisson->ingredients as $recette)
+                
                  <tr>
+                    <td>{{$boisson->nomBoisson}}</td>
                     <td>{{$recette->pivot->boissons_codeBoisson}}</td>
+                    <td>{{$recette->nomIngredient}}</td>
                     <td>{{$recette->pivot->ingredients_codeIngredient}}</td>
                     <td>{{$recette->pivot->quantite}}</td>
+                    <td><a href = "/recettes/{{$boisson->codeBoisson}}/{{$recette->codeIngredient}}/edit" > <button type="button" class="btn btn-primary"> Modifier </button></a></td>
                  </tr>
                 @endforeach
             </tr>

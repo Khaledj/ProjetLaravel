@@ -30,7 +30,7 @@ Route::get('/boisson/{boissoncode}','ListeBoissonController@show')->middleware('
 
 //Liste recette//
  //Route de la page liste de recette//
- // Route::get('/recettes','RecetteController@index')->name('recette')->middleware('auth');//
+ //Route::get('/recettes','RecetteController@index')->name('recette')->middleware('auth');//
 
 // Liste ingredient//
 //Route de la page liste des ingredients//
@@ -82,17 +82,17 @@ Route::get('/recettes','RecetteController@index')->name('recette')->middleware('
 
 //Ajouter///
 //ajouter une recette (saisie du formulaire)//
-// Route::get('/recettes/create','RecetteController@create')->middleware('auth');
+Route::get('/recettes/create','RecetteController@create')->middleware('auth');
 
 //récupération de la saisie du formulaire des boissons//
-// Route::post('/recettes','RecetteController@store')->middleware('auth');
+ Route::post('/recettes','RecetteController@store')->middleware('auth');
 
 ///Mettre a jour///
 //mettre a jour une recette (saisie du formulaire)//
-// Route::get('/recettes/{boissoncode}/{ingredientcode}/edit','RecetteController@edit')->middleware('auth');
+ Route::get('/recettes/{boissoncode}/{ingredientcode}/edit','RecetteController@edit')->middleware('auth');
 
 //mettre a jour une recette (récuperation du formulaire)//
-// Route::put('/recettes/{boissoncode}/{ingredientcode}', 'RecetteController@update')->middleware('auth');
+ Route::put('/recettes/{boissoncode}/{ingredientcode}', 'RecetteController@update')->middleware('auth');
 
 ///////Liste des ingredients///////
 
