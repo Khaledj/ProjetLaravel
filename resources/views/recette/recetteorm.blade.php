@@ -18,7 +18,7 @@
                     <tr>
                         <td>{{ $recette->Boisson_CodeBoisson}}</td>
                         <td>{{ $recette->Ingredients_CodeIngredient}}</td>
-                        <td>{{ $recette->Quantite}}</td>
+                        <td>{{ $recette->Quantiter}}</td>
                             
                     @endforeach
                 </tr>

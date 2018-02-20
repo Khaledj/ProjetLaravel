@@ -7,7 +7,7 @@ class GestionMonnaieController extends Controller
 
   function index()
   {
-    return view('monnaie.gestionmonnaie');
+    return view('monnaie.gestionMonnaie');
   }
 }
  ?>

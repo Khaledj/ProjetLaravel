@@ -33,7 +33,7 @@ class RecetteController extends Controller
     $recette = new Boisson_has_ingredient(); // création d'une recette//
     $recette->Boisson_CodeBoisson = $request->input('codeboisson');
     $recette->Ingredients_CodeIngredient = $request->input('codeingredient');
-    $recette->Quantite = $request->input('quantite'); //Quantité prend la valeur de la quantité du formulaire//
+    $recette->Quantiter = $request->input('quantite'); //Quantité prend la valeur de la quantité du formulaire//
     $recette->save(); //je sauvegarde la nouvelle recette
     return redirect('/recettes');
     }
