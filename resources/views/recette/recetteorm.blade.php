@@ -37,7 +37,7 @@ Liste des recettes
                 <th>boissons_codeBoisson</th>
                 <th>NomIngredient</th>
                 <th>ingredients_codeIngredient</th>
-                <th>Quantité</th> 
+                <th>Quantité</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>

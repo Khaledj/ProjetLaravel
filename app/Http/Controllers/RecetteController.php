@@ -38,7 +38,6 @@ class RecetteController extends Controller
     $recette->boissons_codeBoisson = $request->input('codeboisson');
     $recette->ingredients_codeIngredient = $request->input('codeingredient');
     $recette->quantite = $request->input('quantite'); //Quantité prend la valeur de la quantité du formulaire//
->>>>>>> 7115a1553921c31d6cb0f53a54ffd828aaf96b90
     $recette->save(); //je sauvegarde la nouvelle recette
     return redirect('/recettes');
     }
