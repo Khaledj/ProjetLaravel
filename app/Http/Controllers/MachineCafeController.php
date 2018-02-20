@@ -8,7 +8,7 @@ class MachineCafeController extends Controller
 {
 
   // Methode machine qui permet d'afficher la liste de boisson en fonction de la base de donnée//
-	function machine()
+	public function machine()
 	{
   	    //Fait mauellement//
         // $drinkChoice =['Café au lait' => 60, 'Thé' => 70, 'Expresso' => 40, 'Café long' => 50];

@@ -19,19 +19,19 @@ class RecetteController extends Controller
   //    return view('recette.listerecette',compact('recettes'));
 	 // }
 // //Méthode recette qui affiche la liste des ingredients en fonction de la mise a jour BDD//
- 	function index() {
+ 	public function index() {
  	$boissons = Boisson::all();
  	
  	return view('recette.recetteorm',['boissons'=>$boissons]);	
 }
 
    //Méthode create qui permet de retourner la vue du formulaire//
-	function create(){
+	public function create(){
 		return view('recette.ajout');
 	} 
 
 	 //Méthode store qui permet d'ajouter une recette via  un formulaire//
-    function store(Request $request){
+    public function store(Request $request){
     $recette = new Boisson_has_ingredient(); // création d'une recette//
     $recette->boissons_codeBoisson = $request->input('codeboisson');
     $recette->ingredients_codeIngredient = $request->input('codeingredient');
@@ -41,26 +41,37 @@ class RecetteController extends Controller
     }   
 
      // //Méthode edit qui permet de retourner la vue du formulaire correspondant à la recette selectionné//
-     function edit($boissoncode,$ingredientcode) {
+     public function edit($boissoncode,$ingredientcode) {
       //je recherche toutes les valeurs de la recette qui correspond au code de l'ingredient et au code de la boisson//
-     $recette = Boisson_has_ingredient::where("boissons_codeBoisson",$boissoncode)
-     ->where("ingredients_codeIngredient",$ingredientcode)->first();
-   
+     // $recette = Boisson_has_ingredient::where("boissons_codeBoisson",$boissoncode)
+     // ->where("ingredients_codeIngredient",$ingredientcode)->first();
+    $boisson = Boisson::find($boissoncode);
+    $recette = $boisson->ingredients->find($ingredientcode);
+
      return view('recette.modification',['recette'=>$recette]);
      } 
      // //Méthode update qui permet de retourner une modification d'une recette//
-     function update(Request $request, $boissoncode,$ingredientcode) {
-  
-       $recette = Boisson_has_ingredient::where([["boissons_codeBoisson",$boissoncode],["ingredients_codeIngredient",$ingredientcode]])->first();
-  
-       $recette->quantite = $request->input('quantite'); // je modifie la quantité en fonction du formulaire
-       $recette->save();
-       return redirect('/recettes'); 
-     }
+    public  function update(Request $request, $boissoncode,$ingredientcode) {
+      $boisson = Boisson::find($boissoncode);
+      $recette = $boisson->ingredients->find($ingredientcode);
+      $recette->pivot->update(['quantite' => $request->input('quantite')]);
+      
+      return redirect('/recettes'); 
+      }    
+      //Méthode qui permet de supprimer une recette existant en fonction du code de l'ingrédient et du code boisson//
+   public function destroy($boissoncode,$ingredientcode) { 
+      // je recherche toutes les valeurs de la recette  qui correspond au code de l'ingrédient et au code de la boisson et tu les supprime//
+      $boisson = Boisson::find($boissoncode);
+      $recette = $boisson->ingredients->find($ingredientcode);
+      $recette->pivot->delete();
+ 
+    return redirect('/recettes');
+  }
+
+ 
 }
 ?>
-
-
+ 
 
 
  

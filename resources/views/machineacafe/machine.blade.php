@@ -27,9 +27,12 @@ Machine à Café
         Boisson:
         <b> <input type="text" name="boisson" placeholder="Ecrire une boisson"> </b>
         Nombre de sucre :
-       <b> <input type="text" name="sucre" placeholder="Ecrire le nombre de sucre"> </b>
+       <b> <input type="text" name="sucre" placeholder="Nombre de sucre"> </b>
         <input type="submit" value="submit">
    </form> 
+
+
+                    
    @else
     <form method="post" action="{{ route('machine')}}">
         {{csrf_field()}}
@@ -43,3 +46,6 @@ Machine à Café
     @endauth
     @endif
 @endsection
+
+                
+          

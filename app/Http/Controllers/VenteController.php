@@ -21,18 +21,18 @@ class VenteController extends Controller{
   //  }
 
  //Methode listeVente qui permet de lister les ventes//
-  function index() {
+  public function index() {
      $ventes = Vente::select('*')->get();
      return view('vente.venteorm',['ventes'=>$ventes]);
    }
 
 //Méthode create qui permet de retourner la vue du formulaire//
-  function create(Request $request){
+  public function create(Request $request){
       return view('machineacafe.machine');
   }
 
 // Méthode store qui permet d'ajouter une vente via  un formulaire//
-     function store(Request $request){
+    public function store(Request $request){
      $vente = new Vente(); // création d'une vente //
      //$boisson = Boisson::select("NomBoisson","CodeBoisson")->where("NomBoisson","=",$request->input('boisson'))->get(); 
      $boisson = Boisson::where("nomBoisson","=",$request->input('boisson'))->first(); 

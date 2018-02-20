@@ -23,6 +23,7 @@
                 </tr>
                     @foreach ($ventes as $vente)
                     <tr>
+                      
                         <td>{{ $vente->numeroVente}}</td>
                         <td>{{ $vente->date}}</td>
                         <td>{{ $vente->nombreSucre}}</td>

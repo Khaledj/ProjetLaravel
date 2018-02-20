@@ -16,6 +16,7 @@ Liste des recettes
                 <th>ingredients_codeIngredient</th>
                 <th>Quantité</th> 
                 <th>Modifier</th>
+                <th>Supprimer</th>
             </tr>
 
             <tr>
@@ -28,8 +29,13 @@ Liste des recettes
                     <td>{{$recette->nomIngredient}}</td>
                     <td>{{$recette->pivot->ingredients_codeIngredient}}</td>
                     <td>{{$recette->pivot->quantite}}</td>
-                    <td><a href = "/recettes/{{$boisson->codeBoisson}}/{{$recette->codeIngredient}}/edit" > <button type="button" class="btn btn-primary"> Modifier </button></a></td>
-                 </tr>
+                    <td><a href = "/recettes/{{$recette->pivot->boissons_codeBoisson}}/{{$recette->pivot->ingredients_codeIngredient}}/edit" > <button type="button" class="btn btn-primary"> Modifier </button></a></td>
+                   
+                 <td> <form method="post" action="/recettes/{{$recette->pivot->boissons_codeBoisson}}/{{$recette->pivot->ingredients_codeIngredient}}">
+                        {{csrf_field()}}
+                        {{method_field("DELETE")}}
+                        <input type="submit" class="btn btn-danger" value="Supprimer"></td>
+                        </form>
                 @endforeach
             </tr>
             @endforeach

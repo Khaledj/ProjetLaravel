@@ -94,6 +94,11 @@ Route::get('/recettes/create','RecetteController@create')->middleware('auth');
 //mettre a jour une recette (récuperation du formulaire)//
  Route::put('/recettes/{boissoncode}/{ingredientcode}', 'RecetteController@update')->middleware('auth');
 
+ ///Suppression///
+//Supprimer une recette existant//
+Route::delete('/recettes/{boissoncode}/{ingredientcode}','RecetteController@destroy')->middleware('auth');
+
+
 ///////Liste des ingredients///////
 
 ///Liste des ingredients mode ORM///
