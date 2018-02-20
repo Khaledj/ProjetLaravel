@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 class GestionMonnaieController extends Controller
 {
 
-  function index()
+  public function index()
   {
     return view('monnaie.gestionMonnaie');
   }

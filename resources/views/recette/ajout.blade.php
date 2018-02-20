@@ -10,14 +10,17 @@ Ajouter une recette
 
 
         Code Boisson:<br>
-        <input type="text" name="codeboisson" placeholder="Ecrire un code">
+         <b> <input type="text" name="codeboisson" placeholder="Ecrire un code"> </b> 
         <br>
+
       	Code Ingrédient :<br>
-        <input type="text" name="codeingredient" placeholder="Ecrire un ingrédient">
+        <b> <input type="text" name="codeingredient" placeholder="Ecrire un code"> </b>
         <br>
+
         Quantité : <br>
-        <input type="text" name="quantite" placeholder="Ecrire un stock">
+        <b> <input type="text" name="quantite" placeholder="Ecrire un stock"> </b>
         <br>
+
         <input type="submit" value="submit">
    </form> 
     </div>

@@ -10,16 +10,16 @@ Ajouter une boisson
 
 
         CodeBoisson:<br>
-        <input type="text" name="codeboisson" placeholder="Ecrire un code">
+        <b> <input type="text" name="codeboisson" placeholder="Ecrire un code"> </b>
         <br>
-      	Boisson :<br>
-       <input type="text" name="boisson" placeholder="Ecrire une boisson">
+      	NomBoisson :<br>
+       <b> <input type="text" name="boisson" placeholder="Ecrire une boisson"> </b>
        <br>
        Prix : <br>
-       <input type="text" name="prix" placeholder="Ecrire un prix">
+       <b> <input type="text" name="prix" placeholder="Ecrire un prix"> </b>
        <br>
-       <input type="submit" value="submit">
+        <input type="submit" value="submit">
    </form> 
-    </div>
+    
 
 @endsection

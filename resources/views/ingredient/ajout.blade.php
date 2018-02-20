@@ -10,13 +10,13 @@ Ajouter un ingrédient
 
 
         CodeIngrédient:<br>
-        <input type="text" name="codeingredient" placeholder="Ecrire un code">
+        <b> <input type="text" name="codeingredient" placeholder="Ecrire un code"> </b>
         <br>
-      	Ingrédient :<br>
-        <input type="text" name="ingredient" placeholder="Ecrire un ingrédient">
+      	NomIngrédient :<br>
+        <b> <input type="text" name="ingredient" placeholder="Ecrire un ingrédient"> </b>
         <br>
         Stock : <br>
-        <input type="text" name="stock" placeholder="Ecrire un stock">
+        <b> <input type="text" name="stock" placeholder="Ecrire un stock"> </b> 
         <br>
         <input type="submit" value="submit">
    </form> 

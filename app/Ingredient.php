@@ -10,19 +10,19 @@ class Ingredient extends Model
 	protected $table = 'ingredients';
     
     //définir la clé primaire//
-	protected $primaryKey = 'CodeIngredient';
+	protected $primaryKey = 'codeIngredient';
 
 	//définir le type de clé primaire en chaîne//
 	protected $keyType = 'string';
 
     //
-    protected $fillable=['NomIngredient','Stock'];
+    protected $fillable=['nomIngredient','stockIngredient'];
 
     //colonne created_at et updated_at n'existent pas//
     public $timestamps=false;
 
-    public function boisson() {
-    	return $this->belongsToMany('App\Boisson');
-    }
+     public function boissons() {
+     	return $this->belongsToMany('App\Boisson','boissons_has_ingredients','ingredients_codeIngredient','boissons_codeBoisson')->withPivot('quantite');
+     }
 
 }

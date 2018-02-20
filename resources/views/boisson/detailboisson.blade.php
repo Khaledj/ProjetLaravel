@@ -4,7 +4,7 @@
 @endsection
 @section('content')
  @foreach ($detailboisson as $boisson)
-  <p>Nom boisson: <td>{{$boisson->NomBoisson}}</td></p>
-  <p>Prix: <tr>{{$boisson->Prix}}</tr>cts</p>
+  <p>Nom boisson: <td>{{$boisson->nomBoisson}}</td></p>
+  <p>Prix: <tr>{{$boisson->prix}}</tr>cts</p>
   @endforeach
 @endsection

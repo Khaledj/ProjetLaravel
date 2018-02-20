@@ -6,7 +6,7 @@
 
 @section('content')
 @foreach ($detail as $afficher)
-  <p>Nom boisson: <td>{{$afficher->NomBoisson}}</td></p>
-  <p>Prix: <tr>{{$afficher->Prix}}</tr></p>
+  <p>Nom boisson: <td>{{$afficher->nomBoisson}}</td></p>
+  <p>Prix: <tr>{{$afficher->prix}}</tr></p>
   @endforeach
 @endsection

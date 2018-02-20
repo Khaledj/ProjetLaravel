@@ -13,19 +13,19 @@
                     <th>CodeIngredient</th>
                     <th>NomIngredient</th>
                     <th>StockIngredient</th>
-                    <th>Bouton Modifier</th>
-                    <th>Bouton Supprimer</th>
+                    <th> Modifier</th>
+                    <th> Supprimer</th>
                 </tr>
                     @foreach ($ingredients as $ingredient)
                     <tr>
-                        <td>{{ $ingredient->CodeIngredient}}</td>
-                        <td>{{ $ingredient->NomIngredient}}</td>
-                        <td>{{ $ingredient->StockIngredient}}</td>
-                        <td><a href = "/ingredients/{{$ingredient->CodeIngredient}}/edit" > <button type="button" class="btn btn-warning"> Modifier </button></a></td>
-                        <td> <form method="post" action="/ingredients/{{$ingredient->CodeIngredient}}">
+                        <td>{{ $ingredient->codeIngredient}}</td>
+                        <td>{{ $ingredient->nomIngredient}}</td>
+                        <td>{{ $ingredient->stockIngredient}}</td>
+                        <td><a href = "/ingredients/{{$ingredient->codeIngredient}}/edit" > <button type="button" class="btn btn-primary"> Modifier </button></a></td>
+                        <td> <form method="post" action="/ingredients/{{$ingredient->codeIngredient}}">
                         {{csrf_field()}}
                         {{method_field("DELETE")}}
-                        <input type="submit" value="Supprimer"></td>
+                        <input type="submit" class="btn btn-danger" value="Supprimer"></td>
                         </form>
                     @endforeach
                 </tr>
