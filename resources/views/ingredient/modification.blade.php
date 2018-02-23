@@ -8,11 +8,6 @@ Modifier un ingrédient :
         {{csrf_field()}}
          {{method_field("PUT")}}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        Ingrédient :<br>
-        <input type="text" name="ingredient" placeholder="Ecrire un ingrédient">
-        <br>
-        Stock : <br>
-        <input type="text" name="stock" placeholder="Ecrire un stock">
         NomIngredient :<br>
         <b> <input type="text" name="ingredient" placeholder="Ecrire un ingrédient"> </b>
         <br>

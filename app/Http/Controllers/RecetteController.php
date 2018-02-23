@@ -32,9 +32,6 @@ class RecetteController extends Controller
 	 //Méthode store qui permet d'ajouter une recette via  un formulaire//
     public function store(Request $request){
     $recette = new Boisson_has_ingredient(); // création d'une recette//
-    $recette->Boisson_CodeBoisson = $request->input('codeboisson');
-    $recette->Ingredients_CodeIngredient = $request->input('codeingredient');
-    $recette->Quantiter = $request->input('quantite'); //Quantité prend la valeur de la quantité du formulaire//
     $recette->boissons_codeBoisson = $request->input('codeboisson');
     $recette->ingredients_codeIngredient = $request->input('codeingredient');
     $recette->quantite = $request->input('quantite'); //Quantité prend la valeur de la quantité du formulaire//
